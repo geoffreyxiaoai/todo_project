@@ -21,9 +21,9 @@ export default function TodoInput({ onAdd, isAdding }) {
         onChange={(e) => setText(e.target.value)}
         placeholder="Add a new task..."
         className={clsx(
-          "w-full px-6 py-4 text-lg bg-white/5 backdrop-blur-lg border border-white/10 rounded-2xl",
-          "text-white placeholder-white/40 outline-none transition-all duration-300",
-          "focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500/20 focus:bg-white/10",
+          "w-full px-6 py-4 text-lg bg-white border border-gray-200 rounded-2xl shadow-sm",
+          "text-gray-900 placeholder-gray-400 outline-none transition-all duration-300",
+          "focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20",
           "disabled:opacity-50 disabled:cursor-not-allowed"
         )}
         disabled={isAdding}
@@ -33,9 +33,9 @@ export default function TodoInput({ onAdd, isAdding }) {
         disabled={!text.trim() || isAdding}
         className={clsx(
           "absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-xl",
-          "bg-purple-600 hover:bg-purple-500 text-white transition-all duration-300",
-          "disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-purple-600",
-          "shadow-lg shadow-purple-600/20 hover:shadow-purple-600/40"
+          "bg-blue-600 hover:bg-blue-500 text-white transition-all duration-300",
+          "disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-blue-600",
+          "shadow-lg shadow-blue-600/20 hover:shadow-blue-600/40"
         )}
       >
         <Plus size={24} />

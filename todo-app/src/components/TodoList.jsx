@@ -4,7 +4,7 @@ export default function TodoList({ todos, onToggle, onDelete }) {
   if (!todos?.length) {
     return (
       <div className="text-center py-12">
-        <p className="text-white/30 text-lg">No tasks yet. Add one above!</p>
+        <p className="text-gray-400 text-lg">No tasks yet. Add one above!</p>
       </div>
     );
   }

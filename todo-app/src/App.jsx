@@ -9,18 +9,18 @@ function TodoApp() {
   const { todos, isLoading, isError, addTodo, toggleTodo, deleteTodo, isAdding } = useTodos();
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-purple-900 to-violet-900 flex flex-col items-center py-20 px-4">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-gray-100 to-gray-50 flex flex-col items-center py-20 px-4">
       <div className="w-full max-w-md mb-8 text-center">
-        <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 to-pink-600 mb-2">
+        <h1 className="text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-cyan-500 mb-2">
           Todo App
         </h1>
-        <p className="text-white/50">Stay organized and productive</p>
+        <p className="text-gray-500">Stay organized and productive</p>
       </div>
 
       <TodoInput onAdd={addTodo} isAdding={isAdding} />
 
       {isLoading ? (
-        <div className="text-white/50 animate-pulse">Loading tasks...</div>
+        <div className="text-gray-500 animate-pulse">Loading tasks...</div>
       ) : isError ? (
         <div className="text-red-400">Error loading tasks</div>
       ) : (
