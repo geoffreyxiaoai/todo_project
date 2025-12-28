@@ -33,7 +33,7 @@ export default function TodoInput({ onAdd, isAdding }) {
         disabled={!text.trim() || isAdding}
         className={clsx(
           "absolute right-2 top-1/2 -translate-y-1/2 p-2 rounded-xl",
-          "bg-blue-600 hover:bg-blue-500 text-white transition-all duration-300",
+          "bg-blue-600 hover:bg-blue-500 text-white transition-all duration-300 cursor-pointer",
           "disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:bg-blue-600",
           "shadow-lg shadow-blue-600/20 hover:shadow-blue-600/40"
         )}

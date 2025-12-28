@@ -31,7 +31,7 @@ export default function TodoItem({ todo, onToggle, onDelete }) {
   return (
     <div
       className={clsx(
-        "group flex items-center justify-between p-4 mb-3 rounded-xl",
+        "group flex items-center justify-between p-4 mb-3 rounded-xl cursor-pointer",
           "bg-white border border-gray-100 shadow-sm hover:shadow-md",
           "transition-all duration-300 hover:transform hover:scale-[1.02]",
           todo.completed && "opacity-60 bg-gray-50"
@@ -41,7 +41,7 @@ export default function TodoItem({ todo, onToggle, onDelete }) {
         <button
           onClick={() => onToggle(todo.id)}
           className={clsx(
-            "flex items-center justify-center w-6 h-6 rounded-full border-2 transition-all duration-300",
+            "flex items-center justify-center w-6 h-6 rounded-full border-2 transition-all duration-300 cursor-pointer",
             todo.completed
               ? "bg-green-500 border-green-500 text-white"
               : "border-gray-300 hover:border-blue-500 text-transparent"
@@ -67,7 +67,7 @@ export default function TodoItem({ todo, onToggle, onDelete }) {
       <button
         onClick={onDelete}
         className={clsx(
-          "p-2 text-gray-400 hover:text-red-500 rounded-lg",
+          "p-2 text-gray-400 hover:text-red-500 rounded-lg cursor-pointer",
           "opacity-0 group-hover:opacity-100 transition-all duration-300",
           "hover:bg-red-50"
         )}

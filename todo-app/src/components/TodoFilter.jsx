@@ -15,7 +15,7 @@ export default function TodoFilter({ value, onChange }) {
             key={filter.key}
             onClick={() => onChange(filter.key)}
             className={clsx(
-              "flex-1 px-4 py-2.5 rounded-xl transition-all duration-200",
+              "flex-1 px-4 py-2.5 rounded-xl transition-all duration-200 cursor-pointer",
               "text-sm font-semibold tracking-wide",
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50",
               value === filter.key

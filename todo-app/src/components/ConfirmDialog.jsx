@@ -15,7 +15,7 @@ export default function ConfirmDialog({ open, title, description, onCancel, onCo
           <button
             onClick={onCancel}
             className={clsx(
-              "px-4 py-2 rounded-xl text-sm font-semibold text-gray-600",
+              "px-4 py-2 rounded-xl text-sm font-semibold text-gray-600 cursor-pointer",
               "hover:bg-gray-100 transition-all duration-200"
             )}
           >
@@ -24,7 +24,7 @@ export default function ConfirmDialog({ open, title, description, onCancel, onCo
           <button
             onClick={onConfirm}
             className={clsx(
-              "px-4 py-2 rounded-xl text-sm font-semibold text-white",
+              "px-4 py-2 rounded-xl text-sm font-semibold text-white cursor-pointer",
               "bg-gradient-to-r from-red-500 to-rose-500 shadow-lg shadow-rose-500/30",
               "hover:from-red-500 hover:to-red-600 transition-all duration-200"
             )}
