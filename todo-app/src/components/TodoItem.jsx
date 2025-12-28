@@ -3,6 +3,9 @@ import { clsx } from 'clsx';
 
 const formatTimeAgo = (timestamp) => {
   const diffMs = Math.max(0, Date.now() - timestamp);
+  if (diffMs < 60000) {
+    return 'just now';
+  }
   const totalMinutes = Math.floor(diffMs / 60000);
   const totalHours = Math.floor(totalMinutes / 60);
   const days = Math.floor(totalHours / 24);
