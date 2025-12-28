@@ -4,11 +4,13 @@ import { useTodos } from './hooks/useTodos';
 import TodoInput from './components/TodoInput';
 import TodoList from './components/TodoList';
 import TodoFilter from './components/TodoFilter';
+import ConfirmDialog from './components/ConfirmDialog';
 
 const queryClient = new QueryClient();
 
 function TodoApp() {
   const [filter, setFilter] = useState('all');
+  const [pendingDelete, setPendingDelete] = useState(null);
   const { todos, isLoading, isError, addTodo, toggleTodo, deleteTodo, isAdding } = useTodos();
 
   const filteredTodos = useMemo(() => {
@@ -35,8 +37,25 @@ function TodoApp() {
       ) : isError ? (
         <div className="text-red-400">Error loading tasks</div>
       ) : (
-        <TodoList todos={filteredTodos} onToggle={toggleTodo} onDelete={deleteTodo} />
+        <TodoList
+          todos={filteredTodos}
+          onToggle={toggleTodo}
+          onDelete={(todo) => setPendingDelete(todo)}
+        />
       )}
+
+      <ConfirmDialog
+        open={!!pendingDelete}
+        title="Delete todo"
+        description="This action cannot be undone. Do you want to delete this task?"
+        onCancel={() => setPendingDelete(null)}
+        onConfirm={() => {
+          if (pendingDelete) {
+            deleteTodo(pendingDelete.id);
+            setPendingDelete(null);
+          }
+        }}
+      />
     </div>
   );
 }

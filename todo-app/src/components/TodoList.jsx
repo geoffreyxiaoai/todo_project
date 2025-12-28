@@ -16,7 +16,7 @@ export default function TodoList({ todos, onToggle, onDelete }) {
           key={todo.id}
           todo={todo}
           onToggle={onToggle}
-          onDelete={onDelete}
+          onDelete={() => onDelete(todo)}
         />
       ))}
     </div>

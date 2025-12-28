@@ -65,7 +65,7 @@ export default function TodoItem({ todo, onToggle, onDelete }) {
       </div>
       
       <button
-        onClick={() => onDelete(todo.id)}
+        onClick={onDelete}
         className={clsx(
           "p-2 text-gray-400 hover:text-red-500 rounded-lg",
           "opacity-0 group-hover:opacity-100 transition-all duration-300",
