@@ -11,7 +11,8 @@ const getTodos = async () => {
 const addTodo = async (text) => {
   await delay(300);
   const todos = await getTodos();
-  const newTodo = { id: Date.now(), text, completed: false };
+  const createdAt = Date.now();
+  const newTodo = { id: createdAt, text, completed: false, createdAt };
   const newTodos = [newTodo, ...todos];
   localStorage.setItem(STORAGE_KEY, JSON.stringify(newTodos));
   return newTodo;

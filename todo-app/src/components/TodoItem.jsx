@@ -1,7 +1,30 @@
 import { Check, Trash2 } from 'lucide-react';
 import { clsx } from 'clsx';
 
+const formatTimeAgo = (timestamp) => {
+  const diffMs = Math.max(0, Date.now() - timestamp);
+  const totalMinutes = Math.floor(diffMs / 60000);
+  const totalHours = Math.floor(totalMinutes / 60);
+  const days = Math.floor(totalHours / 24);
+  const hours = totalHours % 24;
+  const minutes = totalMinutes % 60;
+
+  const pluralize = (value, unit) =>
+    `${value} ${unit}${value === 1 ? '' : 's'}`;
+
+  if (totalMinutes < 60) {
+    return `${pluralize(totalMinutes, 'minute')} ago`;
+  }
+
+  if (totalHours < 24) {
+    return `${pluralize(totalHours, 'hour')} ${pluralize(minutes, 'minute')} ago`;
+  }
+
+  return `${pluralize(days, 'day')} ${pluralize(hours, 'hour')} ${pluralize(minutes, 'minute')} ago`;
+};
+
 export default function TodoItem({ todo, onToggle, onDelete }) {
+  const createdAt = todo.createdAt ?? todo.id;
   return (
     <div
       className={clsx(
@@ -23,14 +46,19 @@ export default function TodoItem({ todo, onToggle, onDelete }) {
         >
           <Check size={14} strokeWidth={3} />
         </button>
-        <span
-          className={clsx(
-            "text-lg transition-all duration-300",
-            todo.completed ? "text-gray-400 line-through" : "text-gray-700"
-          )}
-        >
-          {todo.text}
-        </span>
+        <div className="flex flex-col">
+          <span
+            className={clsx(
+              "text-lg transition-all duration-300",
+              todo.completed ? "text-gray-400 line-through" : "text-gray-700"
+            )}
+          >
+            {todo.text}
+          </span>
+          <span className="text-sm text-gray-400">
+            {formatTimeAgo(createdAt)}
+          </span>
+        </div>
       </div>
       
       <button
