@@ -1,22 +1,33 @@
-import { clsx } from 'clsx';
+import { clsx } from "clsx";
 
-export default function ConfirmDialog({ open, title, description, onCancel, onConfirm }) {
+export default function ConfirmDialog({
+  open,
+  title,
+  description,
+  onCancel,
+  onConfirm,
+}) {
   if (!open) return null;
 
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center px-4">
-      <div className="absolute inset-0 bg-black/30 backdrop-blur-sm" />
-      <div className="relative w-full max-w-sm rounded-2xl bg-white shadow-2xl border border-gray-100 p-6">
+      <div className="absolute inset-0 bg-black/30 dark:bg-black/50 backdrop-blur-sm" />
+      <div className="relative w-full max-w-sm rounded-2xl bg-white dark:bg-slate-800 shadow-2xl border border-gray-100 dark:border-slate-700 p-6">
         <div className="mb-4">
-          <h3 className="text-lg font-semibold text-gray-800">{title}</h3>
-          <p className="mt-1 text-sm text-gray-500">{description}</p>
+          <h3 className="text-lg font-semibold text-gray-800 dark:text-slate-100">
+            {title}
+          </h3>
+          <p className="mt-1 text-sm text-gray-500 dark:text-slate-400">
+            {description}
+          </p>
         </div>
         <div className="flex justify-end gap-2">
           <button
             onClick={onCancel}
             className={clsx(
-              "px-4 py-2 rounded-xl text-sm font-semibold text-gray-600 cursor-pointer",
-              "hover:bg-gray-100 transition-all duration-200"
+              "px-4 py-2 rounded-xl text-sm font-semibold cursor-pointer",
+              "text-gray-600 dark:text-slate-300",
+              "hover:bg-gray-100 dark:hover:bg-slate-700 transition-all duration-200"
             )}
           >
             Cancel

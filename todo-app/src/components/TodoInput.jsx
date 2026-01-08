@@ -1,15 +1,15 @@
-import { useState } from 'react';
-import { Plus } from 'lucide-react';
-import { clsx } from 'clsx';
+import { useState } from "react";
+import { Plus } from "lucide-react";
+import { clsx } from "clsx";
 
 export default function TodoInput({ onAdd, isAdding }) {
-  const [text, setText] = useState('');
+  const [text, setText] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     if (text.trim()) {
       onAdd(text);
-      setText('');
+      setText("");
     }
   };
 
@@ -21,9 +21,11 @@ export default function TodoInput({ onAdd, isAdding }) {
         onChange={(e) => setText(e.target.value)}
         placeholder="Add a new task..."
         className={clsx(
-          "w-full px-6 py-4 text-lg bg-white border border-gray-200 rounded-2xl shadow-sm",
-          "text-gray-900 placeholder-gray-400 outline-none transition-all duration-300",
-          "focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20",
+          "w-full px-6 py-4 text-lg rounded-2xl shadow-sm",
+          "bg-white dark:bg-slate-800 border border-gray-200 dark:border-slate-600",
+          "text-gray-900 dark:text-slate-100 placeholder-gray-400 dark:placeholder-slate-500",
+          "outline-none transition-all duration-300",
+          "focus:border-blue-500 dark:focus:border-blue-400 focus:ring-2 focus:ring-blue-500/20 dark:focus:ring-blue-400/20",
           "disabled:opacity-50 disabled:cursor-not-allowed"
         )}
         disabled={isAdding}

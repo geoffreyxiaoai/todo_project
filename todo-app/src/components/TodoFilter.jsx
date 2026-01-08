@@ -1,15 +1,15 @@
-import { clsx } from 'clsx';
+import { clsx } from "clsx";
 
 const FILTERS = [
-  { key: 'all', label: 'All' },
-  { key: 'todo', label: 'Todo' },
-  { key: 'done', label: 'Done' },
+  { key: "all", label: "All" },
+  { key: "todo", label: "Todo" },
+  { key: "done", label: "Done" },
 ];
 
 export default function TodoFilter({ value, onChange }) {
   return (
     <div className="w-full max-w-md mb-6">
-      <div className="flex items-center gap-2 p-1.5 rounded-2xl bg-white/80 border border-gray-200 shadow-sm backdrop-blur">
+      <div className="flex items-center gap-2 p-1.5 rounded-2xl bg-white/80 dark:bg-slate-800/80 border border-gray-200 dark:border-slate-700 shadow-sm backdrop-blur">
         {FILTERS.map((filter) => (
           <button
             key={filter.key}
@@ -20,7 +20,7 @@ export default function TodoFilter({ value, onChange }) {
               "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-500/50",
               value === filter.key
                 ? "bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-lg shadow-blue-500/30"
-                : "text-gray-600 hover:text-blue-600 hover:bg-blue-50/70"
+                : "text-gray-600 dark:text-slate-400 hover:text-blue-600 dark:hover:text-blue-400 hover:bg-blue-50/70 dark:hover:bg-slate-700/70"
             )}
           >
             {filter.label}
